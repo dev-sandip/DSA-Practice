@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{Heap Data Structure}
+\author{Sandip Sapkota}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+A heap is a specialized tree-based data structure that satisfies the heap property. In a max heap, for any given node I, the value of I is greater than or equal to the values of its children, and the highest value is at the root. In a min heap, the value of I is less than or equal to the values of its children, and the lowest value is at the root.
+\section*{Heap Sort as a priority queue. }
+Heap sort is a comparison-based sorting algorithm that uses a binary heap data structure. It is similar to selection sort, where the largest element is selected and placed at the end of the array. The heap sort algorithm can be used as a priority queue, where the highest priority element is removed first.
+\section*{Heap Operations}
+The heap data structure supports the following operations:
+\begin{itemize}
+    \item Insert: Insert an element into the heap.
+    \item Delete: Delete an element from the heap.
+    \item Peek: Get the value of the root element without removing it.
+    \item Extract: Remove and return the root element.
+    \item Heapify: Convert an array into a heap.
+\end{itemize}
+\section*{Heapify Algorithm}
+The heapify algorithm is used to convert an array into a heap. It starts from the last non-leaf node and moves up the tree, ensuring that the heap property is satisfied at each node. The time complexity of the heapify algorithm is O(n), where n is the number of elements in the array.
+\section*{Heap Sort Algorithm}
+The heap sort algorithm uses the heap data structure to sort an array in ascending order. It first converts the array into a max heap using the heapify algorithm, then repeatedly extracts the root element and heapifies the remaining elements. The time complexity of the heap sort algorithm is O(n log n), where n is the number of elements in the array.
+\section*{Conclusion}
+The heap data structure is a powerful tool for implementing priority queues and sorting algorithms. It provides efficient operations for inserting, deleting, and extracting elements, and can be used to sort an array in O(n log n) time. The heap sort algorithm is a comparison-based sorting algorithm that uses the heap data structure to sort an array in ascending order. It is an efficient and stable sorting algorithm that can be used for large datasets.
+\section*{Psudo Code}
+\begin{verbatim}
+HeapSort(A)
+    BuildMaxHeap(A)
+    for i = A.length downto 2
+        swap A[1] and A[i]
+        A.heapSize = A.heapSize - 1
+        MaxHeapify(A, 1)
+\end{verbatim}
+\begin{verbatim}
+MaxHeapify(A, i)
+    l = left(i)
+    r = right(i)
+    if l <= A.heapSize and A[l] > A[i]
+        largest = l
+    else largest = i
+    if r <= A.heapSize and A[r] > A[largest]
+        largest = r
+    if largest != i
+        swap A[i] and A[largest]
+        MaxHeapify(A, largest)
+
+\end{verbatim}
+\begin{verbatim}
+BuildMaxHeap(A)
+    A.heapSize = A.length
+    for i = floor(A.length/2) downto 1
+        MaxHeapify(A, i)
+\end{verbatim}
+\begin{verbatim}
+left(i)
+    return 2*i
+\end{verbatim}
+\begin{verbatim}
+right(i)
+    return 2*i + 1
+\end{verbatim}
+\begin{verbatim}
+parent(i)
+    return floor(i/2)
+\end{verbatim}
+\begin{verbatim}
+swap(A, i, j)
+    temp = A[i]
+    A[i] = A[j]
+    A[j] = temp
+
+\end{verbatim}
+
+
+
+\end{document}
