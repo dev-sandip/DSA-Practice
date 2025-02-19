@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Shell Sort}
+\author{Sandip Sapkota}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+Shell Sort is an in-place comparison-based sorting algorithm. It can be seen as a generalization of insertion sort that allows the exchange of items that are far apart. The idea is to arrange the list of elements so that, starting anywhere, taking every $h$th element produces a sorted list. Such a list is said to be $h$-sorted. The algorithm uses a sequence of increments $h_1, h_2, \ldots, h_k$, called the gap sequence.
+
+\section*{Pseudo Code}
+The following is the pseudo code for Shell Sort:
+
+\begin{verbatim}
+function shellSort(arr)
+  n = length(arr)
+  gap = n // 2
+  while gap > 0
+    for i = gap to n - 1
+      temp = arr[i]
+      j = i
+      while j >= gap and arr[j - gap] > temp
+        arr[j] = arr[j - gap]
+        j = j - gap
+      arr[j] = temp
+    gap = gap // 2
+end function
+\end{verbatim}
+
+\section*{Example}
+Consider the array: [12, 34, 54, 2, 3]
+
+\begin{enumerate}
+  \item Initial array: [12, 34, 54, 2, 3]
+  \item Using gap sequence: [5, 2, 1]
+  \item First pass with gap = 2: [12, 34, 54, 2, 3] $\rightarrow$ [12, 3, 54, 2, 34]
+  \item Second pass with gap = 1: [12, 3, 54, 2, 34] $\rightarrow$ [3, 12, 2, 34, 54] $\rightarrow$ [3, 2, 12, 34, 54]
+  \item Final sorted array: [2, 3, 12, 34, 54]
+\end{enumerate}
+
+\section*{Time Complexity}
+The time complexity of Shell Sort depends on the gap sequence used. The best known sequence is the one proposed by Donald Shell, which has a time complexity of $O(n^2)$.
+
+
+\end{document}
