@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\title{AVL Trees}
+\author{Sandip}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+AVL trees are self-balancing binary search trees. In an AVL tree, the heights of the two child subtrees of any node differ by at most one. If at any time they differ by more than one, rebalancing is performed to restore this property.
+
+\section{Properties}
+\begin{itemize}
+  \item The height difference between the left and right subtrees is at most one.
+  \item Every subtree is also an AVL tree.
+  \item The height of an AVL tree with $n$ nodes is $O(\log n)$.
+\end{itemize}
+
+\section{Rotations}
+To maintain the AVL property, rotations are used. There are four types of rotations:
+\begin{itemize}
+  \item Right Rotation (RR)
+  \item Left Rotation (LL)
+  \item Left-Right Rotation (LR)
+  \item Right-Left Rotation (RL)
+\end{itemize}
+
+\section{Insertion}
+When inserting a new node, the AVL tree may become unbalanced. To restore balance, rotations are performed.
+
+\section{Deletion}
+When deleting a node, the AVL tree may become unbalanced. To restore balance, rotations are performed.
+
+\end{document}

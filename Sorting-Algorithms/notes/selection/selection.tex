@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{array}
+
+\begin{document}
+
+\title{Selection Sort}
+\author{Sandip Sapkota}
+\date{\today}
+\maketitle
+
+\section*{Introduction}
+Selection sort is a simple sorting algorithm that works by selecting the smallest (or largest, depending on sorting order) element from the unsorted portion of the array and swapping it with the first unsorted element.
+
+The selection sort algorithm works by dividing the input list into two parts: the sublist of items already sorted and the sublist of items remaining to be sorted that make up the rest of the list.
+
+The algorithm proceeds by finding the smallest element in the unsorted sublist, swapping it with the leftmost unsorted element, and moving the sublist boundaries one element to the right.\\
+\textbf{Time Complexity:} $O(n^2)$  \hspace{1cm} \textbf{Space Complexity:} $O(1)$
+
+\section*{Algorithm}
+\begin{enumerate}
+  \item Start with the first element as the minimum.
+  \item Compare this minimum with the second element. If the second element is smaller, update the minimum.
+  \item Continue this process for the entire array.
+  \item Swap the minimum element with the first element.
+  \item Move the boundary of the sorted and unsorted sublists one element to the right.
+  \item Repeat the process for the remaining unsorted sublist.
+\end{enumerate}
+
+\section*{Example}
+Consider the array: [64, 25, 12, 22, 11]
+
+\begin{enumerate}
+  \item Initial array: [64, 25, 12, 22, 11]
+  \item First iteration: [\textbf{11}, 25, 12, 22, \textbf{64}]
+  \item Second iteration: [11, \textbf{12}, 25, 22, 64]
+  \item Third iteration: [11, 12, \textbf{22}, 25, 64]
+  \item Fourth iteration: [11, 12, 22, \textbf{25}, 64]
+  \item Sorted array: [11, 12, 22, 25, 64]
+\end{enumerate}
+\section*{Visualization}
+\begin{tikzpicture}
+  % Initial array
+  \foreach \i/\val in {0/64, 1/25, 2/12, 3/22, 4/11} {
+    \node at (\i, 0) {\val};
+  }
+  \draw[->] (0, -0.5) -- (0, -1.5);
+  
+  % First iteration
+  \foreach \i/\val in {0/11, 1/25, 2/12, 3/22, 4/64} {
+    \node at (\i, -2) {\val};
+  }
+  \draw[->] (1, -2.5) -- (1, -3.5);
+  
+  % Second iteration
+  \foreach \i/\val in {0/11, 1/12, 2/25, 3/22, 4/64} {
+    \node at (\i, -4) {\val};
+  }
+  \draw[->] (2, -4.5) -- (2, -5.5);
+  
+  % Third iteration
+  \foreach \i/\val in {0/11, 1/12, 2/22, 3/25, 4/64} {
+    \node at (\i, -6) {\val};
+  }
+  \draw[->] (3, -6.5) -- (3, -7.5);
+  
+  % Fourth iteration
+  \foreach \i/\val in {0/11, 1/12, 2/22, 3/25, 4/64} {
+    \node at (\i, -8) {\val};
+  }
+\end{tikzpicture}
+\newpage
+\section*{Psudo Code}
+\begin{verbatim}
+selectionSort(A,n):
+for(i=o;i,n;i++){
+  least=A[i]
+  pos=i;
+  for(j=i+1;j<n;j++){
+    if(A[j]<least){
+      least=A[j]
+      pos=j
+    }
+  }
+  if (pos!=i){
+  swap(A[i],A[pos])
+}
+}
+
+
+
+\end{verbatim}
+
+\end{document}

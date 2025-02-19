@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage{forest}
+
+\title{DSA Practice: Trees}
+\author{Sandip}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+This document contains past year questions for the chapter \textbf{Trees} in Data Structures and Algorithms.
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Questions}
+
+\subsection{2080 Chaitra}
+\subsubsection{Question 1}
+\textbf{What do you mean by a complete binary tree? Explain with an example. Create an AVL Balanced tree for the following sequence of elements: 10, 9, 8, 4, 5, 7, 32, 16, 11, 1, 12, and 2.}
+
+A complete binary tree is a binary tree in which all levels are completely filled, except possibly the last level, which is filled from left to right.
+
+\bigskip
+\textbf{Example of a Complete Binary Tree:}
+
+\begin{center}
+\begin{forest}
+for tree={
+    grow=south,
+    circle, draw, minimum size=3ex, inner sep=1pt,
+    s sep=5mm
+}
+[1
+    [2
+        [4]
+        [5]
+    ]
+    [3
+        [6]
+        [7]
+    ]
+]
+\end{forest}
+\end{center}
+
+In the above example, the binary tree is complete because:
+- All levels are completely filled except possibly the last.
+- The last level is filled from left to right.
+
+
+\subsubsection{AVL Balanced Tree}
+An AVL tree is a self-balancing binary search tree where the difference between the heights of left and right subtrees cannot be more than one.
+
+For the given sequence:  
+10, 9, 8, 4, 5, 7, 32, 16, 11, 1, 12, 2  
+
+\bigskip
+\textbf{Step 1: Binary Search Tree (Before Balancing)}
+\begin{center}
+\begin{forest}
+for tree={
+    grow=south,
+    circle, draw, minimum size=3ex, inner sep=1pt,
+    s sep=5mm
+}
+[10
+    [9
+        [8
+            [4
+                [1
+                    [,no edge, draw=none]
+                    [2]
+                ]
+                [5
+                    [,no edge, draw=none]
+                    [7]
+                ]
+            ]
+            [,no edge , draw=none]
+        ]
+    ]
+    [32
+        [16
+            [11
+                [,no edge, draw=none]
+                [12]
+            ]
+            [,no edge , draw=none]
+        ]
+
+    ]
+    
+]
+\end{forest}
+\end{center}
+
+\bigskip
+\textbf{Step 2: AVL Balanced Tree (After Rotations)}
+\begin{center}
+\begin{forest}
+for tree={
+    grow=south,
+    circle, draw, minimum size=3ex, inner sep=1pt,
+    s sep=5mm
+}
+[8
+    [5
+        [2
+            [1]
+            [4]
+        ]
+        [7]
+    ]
+    [11
+        [10[9][,no edge, draw=none]]
+        [16
+            [12]
+            [32
+                [,no edge, draw=none]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+\end{center}
+
+\end{document}

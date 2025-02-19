@@ -1,0 +1,19 @@
+# Ignore everything in these directories
+Sorting-Algorithms/notes/**
+Trees/notes/**
+Trees/pyqs/**
+
+# Re-include the parent directories (to allow traversal)
+!Sorting-Algorithms/notes/
+!Trees/notes/
+!Trees/pyqs/
+
+# Re-include all subdirectories (to allow nested .tex files)
+!Sorting-Algorithms/notes/**/
+!Trees/notes/**/
+!Trees/pyqs/**/
+
+# Finally, include all .tex files recursively
+!Sorting-Algorithms/notes/**/*.tex
+!Trees/notes/**/*.tex
+!Trees/pyqs/**/*.tex
